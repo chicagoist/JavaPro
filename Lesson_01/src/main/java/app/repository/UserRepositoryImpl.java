@@ -2,6 +2,7 @@ package app.repository;
 
 import app.domain.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,12 +33,14 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public List<User> getAll() {
-        return null;
+        //return database.values().stream().toList();
+        return new ArrayList<>(database.values());
     }
 
     @Override
     public User update(User user) {
-        return null;
+        database.put(user.getId(), user);
+        return user;
     }
 
     @Override
