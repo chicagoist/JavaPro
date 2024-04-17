@@ -1,6 +1,6 @@
 package app.dojo.kohai.bluebelt;
 
-public class BlueBeltCroup {
+public class BlueBeltGroup {
     public void startExam() {
         System.out.println("Начать экзамен на синий пояс!");
     }
