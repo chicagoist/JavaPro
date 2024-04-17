@@ -8,8 +8,11 @@ import app.staff.specialists.production.MachineOperator;
 import app.staff.specialists.production.Storekeeper;
 import app.staff.specialists.sales.Merchandiser;
 import app.staff.specialists.sales.SalesManager;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 import java.io.DataInput;
+import java.lang.annotation.Annotation;
 
 public class Application {
     public static void main(String[] args) {
@@ -38,11 +41,16 @@ public class Application {
         director.setSecretary(secretary);
         director.setProductionChief(productionChief);
         director.setSalesChief(salesChief);
-*/
+
 
         director.manageCompany();
 
+ */
 
+        AbstractApplicationContext context =
+                new AnnotationConfigApplicationContext("app.config");
+        Director director = context.getBean(Director.class);
+        director.manageCompany();
 
 
     }
