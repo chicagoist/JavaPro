@@ -11,11 +11,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../spring-libs" />
+          <root url="file://$USER_HOME$/Downloads/STUDY_FULLSTACK/ProJava/Lesson_02/spring" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/../spring-libs" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Downloads/STUDY_FULLSTACK/ProJava/Lesson_02/spring" recursive="false" />
       </library>
     </orderEntry>
   </component>
