@@ -4,16 +4,23 @@ import app.domain.Product;
 import app.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 @Service
+@PropertySource("classpath:application.properties")
 public class ProductServiceImpl implements ProductService {
 
 
-    private String articlePrefix = "Art";
+    //private String articlePrefix = "Art";
+    private String articlePrefix;
     private ProductRepository repository;
 
-    public ProductServiceImpl(@Qualifier("productRepositoryMap") ProductRepository repository) {
+    public ProductServiceImpl(
+            @Value("${article.prefix}") String articlePrefix,
+            @Qualifier("productRepositoryMap") ProductRepository repository) {
+        this.articlePrefix = articlePrefix;
         this.repository = repository;
     }
 
