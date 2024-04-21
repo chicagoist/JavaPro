@@ -18,7 +18,7 @@ public class Client {
 
         System.out.println();
         controller.addBook("Book4","1234567899");
-        controller.addBook("Book4","1234567811");
+        controller.addBook("Book5","1234567811");
     }
 }
 
