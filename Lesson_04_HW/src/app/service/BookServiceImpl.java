@@ -46,6 +46,5 @@ public class BookServiceImpl implements BookService {
         String article = String.format("%s-%C-%d",
                 articlePrefix, book.getTitle().charAt(0), book.getId());
         book.setArticle(article);
-
     }
 }

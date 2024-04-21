@@ -24,13 +24,16 @@ public class Book {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }
+
+
+    /*
+
+    public void setId(Long id) {
+        this.id = id;
+
 
     public void setTitle(String title) {
         this.title = title;
@@ -43,6 +46,8 @@ public class Book {
     public void setIsbn10(String isbn10) {
         this.isbn10 = isbn10;
     }
+
+    */
 
     public void setArticle(String article) {
         this.article = article;

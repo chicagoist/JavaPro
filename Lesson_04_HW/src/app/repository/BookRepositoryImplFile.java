@@ -1,6 +1,7 @@
 package app.repository;
 
 import app.domain.Book;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,12 @@ import java.io.FileWriter;
 @Primary
 public class BookRepositoryImplFile implements BookRepository {
 
+    private String articlePrefix;
+
+    public BookRepositoryImplFile(
+            @Value("${article.prefix}") String articlePrefix) {
+        this.articlePrefix = articlePrefix;
+    }
 
     @Override
     public Book getById(Long id) {
@@ -87,8 +94,9 @@ public class BookRepositoryImplFile implements BookRepository {
 
 
             if(!isbnExists) {
+
                 writer.newLine();
-                writer.write(newId + ";" + title + ";" + isbn);
+                writer.write(newId + ";" + title + ";" + isbn + ";" + articlePrefix);
                 writer.close();
                 System.out.println("Новая книга с ISBN " + isbn + " успешно " +
                         "добавлена в БД");
