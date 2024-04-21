@@ -9,7 +9,16 @@ public class Book {
     private String title;
     private String isbn10;
 
-/*
+    //probe
+    private String article;
+
+
+    public Book(Long id, String title, String isbn10) {
+        this.id = id;
+        this.title = title;
+        this.isbn10 = isbn10;
+    }
+
 
     public Long getId() {
         return id;
@@ -34,31 +43,29 @@ public class Book {
     public void setIsbn10(String isbn10) {
         this.isbn10 = isbn10;
     }
-*/
 
-    public Book(Long id, String title, String isbn10) {
-        this.id = id;
-        this.title = title;
-        this.isbn10 = isbn10;
+    public void setArticle(String article) {
+        this.article = article;
     }
+
 
     @Override
     public boolean equals(Object o) {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(id, book.id) && Objects.equals(title, book.title) && Objects.equals(isbn10, book.isbn10);
+        return Objects.equals(id, book.id) && Objects.equals(title, book.title) && Objects.equals(isbn10, book.isbn10) && Objects.equals(article, book.article);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, isbn10);
+        return Objects.hash(id, title, isbn10, article);
     }
 
     @Override
     public String toString() {
         return String.format(Locale.US, "Book id: %d, title: %s, " +
-                "ISBN10 - %s", id,title,isbn10);
+                "ISBN10 - %s, артикул - %s", id,title,isbn10,article);
     }
 
 

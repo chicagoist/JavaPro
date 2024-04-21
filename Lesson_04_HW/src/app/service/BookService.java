@@ -7,4 +7,5 @@ public interface BookService {
     Book getById(Long id);
     Book getByIsbn(String isbn);
     void addBook(String title, String isbn);
+    void setArticle(Book book);
 }

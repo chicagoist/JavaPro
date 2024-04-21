@@ -52,7 +52,4 @@ public class Product {
                 "цена - %" +
                 ".2f, артикул - %s",id,name,price,article);
     }
-
-
-
 }
