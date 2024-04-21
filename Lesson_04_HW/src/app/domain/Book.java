@@ -9,6 +9,7 @@ public class Book {
     private String title;
     private String isbn10;
 
+/*
 
     public Long getId() {
         return id;
@@ -33,6 +34,7 @@ public class Book {
     public void setIsbn10(String isbn10) {
         this.isbn10 = isbn10;
     }
+*/
 
     public Book(Long id, String title, String isbn10) {
         this.id = id;

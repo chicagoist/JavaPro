@@ -16,7 +16,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book getById(Long id) {
-        Book book =repository.getById(id);
+        Book book = repository.getById(id);
         return book;
     }
 
@@ -24,5 +24,10 @@ public class BookServiceImpl implements BookService {
     public Book getByIsbn(String isbn) {
         Book book = repository.getByIsbn(isbn);
         return book;
+    }
+
+    @Override
+    public void addBook(String title, String isbn) {
+        repository.addBook(title,isbn);
     }
 }

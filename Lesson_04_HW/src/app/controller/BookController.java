@@ -20,4 +20,8 @@ public class BookController {
     public Book getByIsbn(String isbn) {
         return service.getByIsbn(isbn);
     }
+
+    public void addBook(String title, String isbn) {
+        service.addBook(title, isbn);
+    }
 }
