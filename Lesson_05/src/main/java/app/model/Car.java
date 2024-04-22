@@ -7,7 +7,6 @@ public class Car {
 
     private Long id;
     private String brand;
-    //private double price;
     private BigDecimal price;
     private int year;
 
