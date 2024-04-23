@@ -4,6 +4,7 @@ import app.constants.Constants;
 
 import java.math.BigDecimal;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static app.constants.Constants.*;
@@ -82,14 +83,30 @@ public class CarRepositoryDB implements CarRepository {
 
     @Override
     public List<Car> getAll() {
+
+        List<Car> cars = new ArrayList<>();
+
         try (Connection connection = getConnection()) {
+
+            String query = "SELECT * FROM car";
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                Long id = resultSet.getLong("id");
+                String brand = resultSet.getString("brand");
+                BigDecimal price = resultSet.getBigDecimal("price");
+                int year = resultSet.getInt("year");
+                //
+                cars.add(new Car(id, brand, price, year));
+            }
 
 
         } catch (Exception e) {
 
             throw new RuntimeException(e);
         }
-        return null;
+        return cars;
     }
 
     @Override
