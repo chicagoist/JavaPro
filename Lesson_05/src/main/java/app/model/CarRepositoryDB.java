@@ -119,7 +119,7 @@ public class CarRepositoryDB implements CarRepository {
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setBigDecimal(1, car.getPrice());
-           preparedStatement.setLong(2, car.getId());
+            preparedStatement.setLong(2, car.getId());
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected == 0) {
                 throw new RuntimeException("Не удалось обновить автомобиль с id: " + car.getId());
@@ -135,7 +135,15 @@ public class CarRepositoryDB implements CarRepository {
     public void delete(Long id) {
 
         try (Connection connection = getConnection()) {
+            // DELETE FROM car WHERE id = 4
 
+            String query = "DELETE FROM car WHERE id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, id);
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new RuntimeException("Не удалось удалить автомобиль с id: " + id);
+            }
 
         } catch (Exception e) {
 
