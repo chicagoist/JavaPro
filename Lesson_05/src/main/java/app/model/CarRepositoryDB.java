@@ -29,33 +29,33 @@ public class CarRepositoryDB implements CarRepository {
     @Override
     public Car save(Car car) {
 
-
         try (Connection connection = getConnection()) {
-            Long id = ++currentId;
+            //Long id = ++currentId;\
+            String query = "INSERT INTO car (brand, price, year) VALUES (?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, car.getBrand());
+            preparedStatement.setBigDecimal(2, car.getPrice());
+            preparedStatement.setInt(3, car.getYear());
 
+            int rowsAffected = preparedStatement.executeUpdate();
 
-            // INSERT INTO car (id, brand, price, year) VALUES (1, 'Toyota', 25000, 2020);
-            String query = String.format("INSERT INTO car (id, brand, price, year) VALUES (%d, %s, %d, %d)",
-                    id, );
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+            if (rowsAffected == 0) {
+                throw new RuntimeException("НЕ УДАЛОСЬ ДОСТУЧАТЬСЯ ДО БД");
+            }
 
-            resultSet.next();
-            String brand = resultSet.getString("brand");
-            BigDecimal price = resultSet.getBigDecimal("price");
-            int year = resultSet.getInt("price");
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
 
-
-
-            return new Car(id, brand, price, year);
-
-        } catch (Exception e) {
-
+            if (generatedKeys.next()) {
+                Long id = generatedKeys.getLong(1);
+                car.setId(id);
+                return car;
+            } else {
+                throw new RuntimeException("Не удадось создать id");
+            }
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-
 
     @Override
     public Car getById(Long id) {
