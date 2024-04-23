@@ -10,6 +10,8 @@ import static app.constants.Constants.*;
 
 public class CarRepositoryDB implements CarRepository {
 
+    private long currentId;
+
     private Connection getConnection() {
         try {
             Class.forName(DB_DRIVER_PATH);
@@ -26,8 +28,34 @@ public class CarRepositoryDB implements CarRepository {
 
     @Override
     public Car save(Car car) {
-        return null;
+
+
+        try (Connection connection = getConnection()) {
+            Long id = ++currentId;
+
+
+            // INSERT INTO car (id, brand, price, year) VALUES (1, 'Toyota', 25000, 2020);
+            String query = String.format("INSERT INTO car (id, brand, price, year) VALUES (%d, %s, %d, %d)",
+                    id, );
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            resultSet.next();
+            String brand = resultSet.getString("brand");
+            BigDecimal price = resultSet.getBigDecimal("price");
+            int year = resultSet.getInt("price");
+
+
+
+            return new Car(id, brand, price, year);
+
+        } catch (Exception e) {
+
+            throw new RuntimeException(e);
+        }
     }
+
+
 
     @Override
     public Car getById(Long id) {

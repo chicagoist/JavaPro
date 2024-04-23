@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a1b6ebb-ad5e-403a-aad9-9b917f6948a9" name="Changes" comment="Lesson 05 works: doGet, doPost, doPut, doDelete" />
+    <list default="true" id="6a1b6ebb-ad5e-403a-aad9-9b917f6948a9" name="Changes" comment="Lesson 05 works: doGet, doPost, doPut, doDelete">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/model/CarRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/model/CarRepositoryDB.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +53,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="2fRvOmttvUjo5xNyuTO2udQTfts" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -62,6 +66,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/apache-tomcat-10.1.20/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -109,17 +116,17 @@
       <setting name="focusEditor" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat Default" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.20" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Tomcat Local" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.20" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Lesson_05:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/Lesson_05_war" />
+            <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="c4bad840-532e-4811-be2a-a99694c2e2e2" />
+        <option name="BASE_DIRECTORY_NAME" value="43c4c5aa-a032-4fa6-88db-7beeefbf9515" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -127,7 +134,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="40561" />
+        <option name="DEBUG_PORT" value="62917" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -191,7 +198,9 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="false" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Lesson_05:war" />
+        </option>
       </method>
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -213,8 +222,11 @@
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
       <option name="catalinaBase" value="C:\Users\ThinkPad T430\AppData\Local\apache-tomcat-10.1.20\lib" />
-      <option name="contextPath" value="/Lesson_05" />
+      <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
       <option name="extraClassPath" value="" />
       <option name="tomcatInfo">
         <TomcatInfo>
@@ -227,11 +239,14 @@
       <module name="Lesson_05" />
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Lesson_05:war" />
+        </option>
       </method>
     </configuration>
     <list>
       <item itemvalue="Smart Tomcat.Tomcat: Lesson_05" />
-      <item itemvalue="Tomcat Server.Tomcat Default" />
+      <item itemvalue="Tomcat Server.Tomcat Local" />
     </list>
     <recent_temporary>
       <list>
@@ -252,7 +267,10 @@
       <workItem from="1713801015101" duration="4720000" />
       <workItem from="1713811629261" duration="530000" />
       <workItem from="1713812554637" duration="2912000" />
-      <workItem from="1713859299224" duration="7356000" />
+      <workItem from="1713859299224" duration="7806000" />
+      <workItem from="1713871298417" duration="81000" />
+      <workItem from="1713876206266" duration="500000" />
+      <workItem from="1713876924621" duration="3667000" />
     </task>
     <task id="LOCAL-00001" summary="Lesson 05">
       <option name="closed" value="true" />
