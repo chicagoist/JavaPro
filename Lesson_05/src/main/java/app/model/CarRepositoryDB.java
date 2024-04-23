@@ -97,10 +97,19 @@ public class CarRepositoryDB implements CarRepository {
 
         try (Connection connection = getConnection()) {
 
+            // UPDATE car SET price = 1000 WHERE id = 4
+            String query = "UPDATE car SET price = ? WHERE id = ?";
 
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setBigDecimal(1, car.getPrice());
+           preparedStatement.setLong(2, car.getId());
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new RuntimeException("Не удалось обновить автомобиль с id: " + car.getId());
+            }
         } catch (Exception e) {
 
-            throw new RuntimeException(e);
+            throw new RuntimeException("Хрень какая-то " + e);
         }
     }
 
