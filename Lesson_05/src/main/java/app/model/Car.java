@@ -1,6 +1,7 @@
 package app.model;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Car {
@@ -12,6 +13,13 @@ public class Car {
     private int year;
 
     public Car(String brand, BigDecimal price, int year) {
+        this.brand = brand;
+        this.price = price;
+        this.year = year;
+    }
+
+    public Car(Long id, String brand, BigDecimal price, int year) {
+        this.id = id;
         this.brand = brand;
         this.price = price;
         this.year = year;
@@ -48,7 +56,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return String.format("Car: ID - %d, brand - %s, price - %.2f, year - %d",
+        return String.format(Locale.US, "Car: ID - %d, brand - %s, price - %.2f, year - %d",
                 id, brand, price, year);
     }
 }
