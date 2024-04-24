@@ -17,6 +17,9 @@ public class Car {
         this.year = year;
     }
 
+    public Car() {
+    }
+
     public Car(Long id, String brand, BigDecimal price, int year) {
         this.id = id;
         this.brand = brand;
