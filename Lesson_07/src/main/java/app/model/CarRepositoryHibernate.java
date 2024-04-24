@@ -36,15 +36,16 @@ public class CarRepositoryHibernate implements CarRepository {
     @Override
     public Car getById(Long id) {
         try {
-           // entityManager.getTransaction().begin();
-           // Car car = entityManager.find(Car.class, id);
-           // entityManager.getTransaction().commit();
+            // entityManager.getTransaction().begin();
+            // Car car = entityManager.find(Car.class, id);
+            // entityManager.getTransaction().commit();
             return entityManager.find(Car.class, id);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
+
     @Override
     public List<Car> getAll() {
         EntityTransaction transaction = entityManager.getTransaction();
@@ -80,6 +81,4 @@ public class CarRepositoryHibernate implements CarRepository {
             entityManager.getTransaction().rollback();
         }
     }
-
-
 }
