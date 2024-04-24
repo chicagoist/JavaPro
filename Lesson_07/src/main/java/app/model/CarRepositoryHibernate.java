@@ -56,7 +56,14 @@ public class CarRepositoryHibernate implements CarRepository {
 
     @Override
     public void update(Car car) {
-
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(car);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
     }
 
     @Override
