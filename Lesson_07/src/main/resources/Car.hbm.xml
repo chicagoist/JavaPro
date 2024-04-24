@@ -22,7 +22,5 @@
         <property name="year" type="java.lang.Integer">
             <column name="year"/>
         </property>
-
-
     </class>
 </hibernate-mapping>
