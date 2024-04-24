@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class CarRepositoryMap implements CarRepository {
 
-    private Map<Long, Car> database = new HashMap<>();
+    private final Map<Long, Car> database = new HashMap<>();
     private long currentId;
 
     public CarRepositoryMap() {
@@ -41,7 +41,7 @@ public class CarRepositoryMap implements CarRepository {
     public void update(Car car) {
 
         Car foundCar = database.get(car.getId());
-        if(foundCar != null) {
+        if (foundCar != null) {
             foundCar.setPrice(car.getPrice());
         }
         //database.put(car.getId(),car);

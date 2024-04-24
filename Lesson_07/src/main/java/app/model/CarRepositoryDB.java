@@ -1,6 +1,5 @@
 package app.model;
 
-import app.constants.Constants;
 
 import java.math.BigDecimal;
 import java.sql.*;

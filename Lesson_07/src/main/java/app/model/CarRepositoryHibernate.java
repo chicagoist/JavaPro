@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CarRepositoryHibernate implements CarRepository {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public CarRepositoryHibernate() {
         this.entityManager = new Configuration()
@@ -24,7 +24,7 @@ public class CarRepositoryHibernate implements CarRepository {
     @Override
     public Car getById(Long id) {
         entityManager.getTransaction().begin();
-        Car car = entityManager.find(Car.class,id);
+        Car car = entityManager.find(Car.class, id);
         entityManager.getTransaction().commit();
         return car;
     }
