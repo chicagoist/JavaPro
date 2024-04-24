@@ -20,7 +20,17 @@ public class CarRepositoryHibernate implements CarRepository {
 
     @Override
     public Car save(Car car) {
-        return null;
+        try {
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            entityManager.persist(car);
+            transaction.commit();
+            return car;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
     }
 
     @Override
