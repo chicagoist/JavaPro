@@ -1,6 +1,7 @@
 package app.model;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import org.hibernate.cfg.Configuration;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class CarRepositoryHibernate implements CarRepository {
                 .createEntityManager();
     }
 
+
     @Override
     public Car save(Car car) {
         return null;
@@ -23,15 +25,23 @@ public class CarRepositoryHibernate implements CarRepository {
 
     @Override
     public Car getById(Long id) {
-        entityManager.getTransaction().begin();
-        Car car = entityManager.find(Car.class, id);
-        entityManager.getTransaction().commit();
-        return car;
+        try {
+           // entityManager.getTransaction().begin();
+           // Car car = entityManager.find(Car.class, id);
+           // entityManager.getTransaction().commit();
+            return entityManager.find(Car.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
-
     @Override
     public List<Car> getAll() {
-        return null;
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        List<Car> cars = entityManager.createQuery("FROM Car", Car.class).getResultList();
+        transaction.commit();
+        return cars;
     }
 
     @Override
@@ -43,4 +53,6 @@ public class CarRepositoryHibernate implements CarRepository {
     public void delete(Long id) {
 
     }
+
+
 }
