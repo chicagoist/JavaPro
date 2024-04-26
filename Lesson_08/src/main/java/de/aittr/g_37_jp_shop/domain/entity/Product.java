@@ -17,6 +17,22 @@ public class Product {
         this.isActive = isActive;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
     @Override
     public boolean equals(Object o) {
         if(this == o) return true;
