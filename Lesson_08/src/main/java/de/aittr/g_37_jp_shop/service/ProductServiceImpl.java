@@ -1,7 +1,7 @@
 package de.aittr.g_37_jp_shop.service;
 
 import de.aittr.g_37_jp_shop.domain.entity.Product;
-import de.aittr.g_37_jp_shop.repository.interfaces.ProductRepository;
+import de.aittr.g_37_jp_shop.repository.ProductRepository;
 import de.aittr.g_37_jp_shop.service.interfaces.ProductService;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
             throw new RuntimeException("Product id is incorrect");
         }
 
-        Product product = repository.getById(id);
+        Product product = repository.findById(id).orElse(null);
 
         if(product == null) {
             throw new RuntimeException("Product not found");
