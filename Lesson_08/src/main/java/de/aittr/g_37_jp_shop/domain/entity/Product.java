@@ -33,8 +33,7 @@ public class Product {
 
     public Product() {
     }
-
-
+    
     public Long getId() {
         return id;
     }
@@ -53,8 +52,8 @@ public class Product {
 
     @Override
     public boolean equals(Object o) {
-        if(this == o) return true;
-        if(o == null || getClass() != o.getClass()) return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
         return isActive == product.isActive && Objects.equals(id, product.id) && Objects.equals(title, product.title) && Objects.equals(price, product.price);
     }
