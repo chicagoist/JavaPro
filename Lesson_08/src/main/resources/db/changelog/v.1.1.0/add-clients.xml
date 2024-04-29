@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="add_clients" author="chicagoist">
+
+        <insert tableName="client">
+            <column name="first_name" value="Ivan"/>
+            <column name="second_name" value="Ivanov"/>
+            <column name="email" value="ivam@email.com"/>
+            <column name="is_active" value="true"/>
+        </insert>
+
+        <insert tableName="client">
+            <column name="first_name" value="Stepan"/>
+            <column name="second_name" value="Stepanov"/>
+            <column name="email" value="stepan@email.com"/>
+            <column name="is_active" value="true"/>
+        </insert>
+
+        <insert tableName="client">
+            <column name="first_name" value="Ivan"/>
+            <column name="second_name" value="Stepanov"/>
+            <column name="email" value="ivam.stepanov@email.com"/>
+            <column name="is_active" value="false"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>

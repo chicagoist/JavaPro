@@ -1,7 +1,6 @@
 package de.aittr.g_37_jp_shop.service.interfaces;
 
 import de.aittr.g_37_jp_shop.domain.entity.Product;
-import de.aittr.g_37_jp_shop.repository.ProductRepository;
 
 import java.math.BigDecimal;
 import java.util.List;
