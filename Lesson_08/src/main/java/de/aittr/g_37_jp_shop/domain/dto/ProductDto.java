@@ -1,7 +1,5 @@
 package de.aittr.g_37_jp_shop.domain.dto;
 
-import jakarta.persistence.Column;
-
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -10,9 +8,6 @@ public class ProductDto {
     private Long id;
     private String title;
     private BigDecimal price;
-
-
-
 
     public Long getId() {
         return id;
@@ -53,6 +48,7 @@ public class ProductDto {
 
     @Override
     public String toString() {
-        return String.format("Product: ID - %d, title - %s, price - %.2f", id, title, price);
+        return String.format("Product: ID - %d, title - %s, price - %.2f",
+                id, title, price);
     }
 }

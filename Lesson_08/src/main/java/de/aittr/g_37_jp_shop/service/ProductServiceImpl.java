@@ -16,12 +16,10 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository repository;
     private ProductMappingService mappingService;
 
-
     public ProductServiceImpl(ProductRepository repository, ProductMappingService mappingService) {
         this.repository = repository;
         this.mappingService = mappingService;
     }
-
 
     @Override
     public ProductDto save(ProductDto product) {
@@ -35,14 +33,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDto getById(Long id) {
-
-        if(id == null || id < 1) {
+        if (id == null || id < 1) {
             throw new RuntimeException("Product id is incorrect");
         }
 
         Product product = repository.findById(id).orElse(null);
 
-        if(product == null) {
+        if (product == null) {
             throw new RuntimeException("Product not found");
         }
 
