@@ -34,6 +34,22 @@ public class Product {
     public Product() {
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
     public Long getId() {
         return id;
     }
