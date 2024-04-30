@@ -1,5 +1,6 @@
 package de.aittr.g_37_jp_shop.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -10,11 +11,11 @@ import java.util.Objects;
 @Table(name = "product")
 public class Product {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "title")
     private String title;
 
@@ -24,14 +25,14 @@ public class Product {
     @Column(name = "is_active")
     private boolean isActive;
 
+    public Product() {
+    }
+
     public Product(Long id, String title, BigDecimal price, boolean isActive) {
         this.id = id;
         this.title = title;
         this.price = price;
         this.isActive = isActive;
-    }
-
-    public Product() {
     }
 
     public Long getId() {
@@ -46,8 +47,25 @@ public class Product {
         return price;
     }
 
+    @JsonIgnore
     public boolean isActive() {
         return isActive;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
     @Override
@@ -65,7 +83,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("Product: ID - %d, title - %s, price - %.2f, " +
-                "active - %s", id, title, price, isActive ? "yes" : "no");
+        return String.format("Product: ID - %d, title - %s, price - %.2f, active - %s",
+                id, title, price, isActive ? "yes" : "no");
     }
 }
