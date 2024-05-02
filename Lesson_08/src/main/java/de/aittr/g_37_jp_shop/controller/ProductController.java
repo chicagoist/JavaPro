@@ -5,6 +5,8 @@ import de.aittr.g_37_jp_shop.domain.entity.Product;
 import de.aittr.g_37_jp_shop.service.interfaces.ProductService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -27,10 +29,17 @@ public class ProductController {
         return service.getById(id);
     }
 
+    @GetMapping("/all")
+    public List<ProductDto> getAll(){
+        return service.getAll();
+    }
+
     @PostMapping
     public ProductDto save(@RequestBody ProductDto product) {
         return service.save(product);
     }
+
+
 
 
 
