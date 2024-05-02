@@ -22,13 +22,22 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDto save(ProductDto product) {
-        return null;
+    public ProductDto save(ProductDto dto) {
+        Product entity = mappingService.mapDtoToEntity(dto);
+        repository.save(entity);
+        return mappingService.mapEntityToDto(entity);
     }
 
     @Override
     public List<ProductDto> getAll() {
-        return null;
+        return repository.findAll()
+                .stream()
+              //  .filter(x -> x.isActive())
+                .filter(Product::isActive)
+   //             .map(x -> mappingService.mapEntityToDto(x))
+                .map(mappingService::mapEntityToDto)
+                .toList();
+
     }
 
     @Override
@@ -47,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void update(ProductDto product) {
+    public void update(ProductDto dto) {
 
     }
 

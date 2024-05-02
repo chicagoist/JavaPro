@@ -18,8 +18,8 @@ public class ProductController {
     }
 
     // /example/2
-/*    @GetMapping("/example/{id}")
-    public Product getById(@PathVariable Long id){
+/*   @GetMapping("/example/{id}")
+    public ProductDto getById(@PathVariable Long id){
         return service.getById(id);
     }*/
 
