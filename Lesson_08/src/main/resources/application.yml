@@ -10,3 +10,6 @@ spring:
     properties:
       hibernate:
         auto_quote_keyword: true
+key:
+  access: aovKvB5EPC2sJF8M1vW08teR3cjH8UeqgbCLRSz1vO0=
+  refresh: ootDucfsr8xxJcQLIXcEdMeFEp2Y4hcmSmSQb83o1Vg=
