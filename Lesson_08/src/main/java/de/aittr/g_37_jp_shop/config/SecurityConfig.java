@@ -31,9 +31,7 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(x -> x
                         .requestMatchers(HttpMethod.GET,"/products/all").permitAll()
-                       // .requestMatchers(HttpMethod.GET,"/products").hasAnyRole("ADMIN","USER")
-                       // .requestMatchers(HttpMethod.GET,"/products").hasAnyRole("ADMIN","USER")
-                        .requestMatchers(HttpMethod.GET,"/products").hasRole("USER")
+                        .requestMatchers(HttpMethod.GET,"/products").hasAnyRole("ADMIN","USER")
                         .requestMatchers(HttpMethod.POST,"/products").hasRole("ADMIN")
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
